@@ -1,104 +1,54 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const Card = () => {
+export const EcommerceCard = ({
+  imageUrl = 'https://picsum.photos/280/320',
+  title = 'Product Name',
+  price = '$99.99',
+  onAddToCart = () => {},
+  sale = false
+}) => {
   return (
-    <StyledWrapper>
-      <div className="product-card mt-5">
-        <div className="product-image-container">
-          {/* You can replace the placeholder image with your product image */}
-          <img
-            src="https://m.media-amazon.com/images/I/41FYkVPzrIL.jpg"
-            alt="Product"
-            className="product-image"
-          />
+    <div className="card card-compact bg-base-100 shadow-lg hover:shadow-2xl transition-shadow duration-300 border-0 border-amber-50">
+      <figure className="relative">
+        <img src={imageUrl} alt={title} className="object-cover h-54 w-full" />
+        {sale && (
+          <div className="badge badge-error absolute top-3 right-3 text-xs font-bold">
+            SALE
+          </div>
+        )}
+      </figure>
+      <div className="card-body flex flex-col">
+        <h2 className="card-title text-lg font-semibold line-clamp-2">{title}</h2>
+        <div className="flex items-center gap-2 mt-1">
+          <span className="text-xl font-bold text-primary">{price}</span>
+          {sale && <span className="text-sm text-gray-400 line-through">$149.99</span>}
         </div>
-        <p className="product-title text-white">i-Pad(64gb 128Mib)</p>
-        <p className="product-description font-semibold text-white">
-          This is a short description of the product. Highlight key features.
-        </p>
-        <div className="product-footer">
-          <p className="product-price text-red-900">$49.99</p>
-          <button className="add-to-cart-btn hover:bg-blue-700 text-amber-100">Add to Cart</button>
-        </div>
+        <button
+          onClick={onAddToCart}
+          className="btn btn-primary btn-sm mt-auto uppercase tracking-wide"
+        >
+          Add to Cart
+        </button>
       </div>
-    </StyledWrapper>
+    </div>
   );
 };
 
-const StyledWrapper = styled.div`
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    background-color: #90D1CA;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: 16px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
+// Example grid
+export const ExampleCardList = () => (
+  <div className="bg-base-200 p-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {Array.from({ length: 10 }).map((_, idx) => (
+        <EcommerceCard
+          key={idx}
+          imageUrl={`https://picsum.photos/280/320?random=${idx}`}
+          title={`Modern Product ${idx + 1}`}
+          price={`$${(Math.random() * 100 + 50).toFixed(2)}`}
+          sale={idx < 5}
+        />
+      ))}
+    </div>
+  </div>
+);
 
-  .product-card:hover {
-    transform: translateY(-8px);
-  }
-
-  .product-image-container {
-    width: 100%;
-    height: 200px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .product-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 12px 0 6px;
-  }
-
-  .product-description {
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
-
-  .product-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .product-price {
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  .add-to-cart-btn {
-    padding: 8px 12px;
-    background-color: #12bde7;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #0a8bbd;
-    }
-  }
-`;
-
-
-export default Card;
+export default EcommerceCard;
