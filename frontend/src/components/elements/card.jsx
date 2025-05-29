@@ -1,54 +1,72 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartSlice';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa'; // Cart icon
 
-export const EcommerceCard = ({
-  imageUrl = 'https://picsum.photos/280/320',
-  title = 'Product Name',
-  price = '$99.99',
-  onAddToCart = () => {},
-  sale = false
-}) => {
+const EcommerceCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onAddToCart = () => {
+    dispatch(addToCart(product));
+    toast.success(`${product.name} added to cart`);
+  };
+
+  const onBuyNow = () => {
+    dispatch(addToCart(product));
+    toast.success(`${product.name} added to cart`);
+    navigate('/cart');
+  };
+
   return (
-    <div className="card card-compact bg-base-100 shadow-lg hover:shadow-2xl transition-shadow duration-300 border-0 border-amber-50">
+    <div className="card card-compact bg-base-100 shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <figure className="relative">
-        <img src={imageUrl} alt={title} className="object-cover h-54 w-full" />
-        {sale && (
+        <img
+          src={product.image}
+          alt={product.name}
+          className="object-cover h-54 w-full"
+        />
+        {product.sale && (
           <div className="badge badge-error absolute top-3 right-3 text-xs font-bold">
             SALE
           </div>
         )}
       </figure>
+
       <div className="card-body flex flex-col">
-        <h2 className="card-title text-lg font-semibold line-clamp-2">{title}</h2>
+        <h2 className="card-title text-lg font-semibold line-clamp-2">
+          {product.name}
+        </h2>
+
         <div className="flex items-center gap-2 mt-1">
-          <span className="text-xl font-bold text-primary">{price}</span>
-          {sale && <span className="text-sm text-gray-400 line-through">$149.99</span>}
+          <span className="text-xl font-bold text-primary">₹{product.price}</span>
+          {product.sale && (
+            <span className="text-sm text-gray-400 line-through">₹1499.00</span>
+          )}
         </div>
-        <button
-          onClick={onAddToCart}
-          className="btn btn-primary btn-sm mt-auto uppercase tracking-wide"
-        >
-          Add to Cart
-        </button>
+
+        {/* Buttons side by side */}
+        <div className="mt-auto flex gap-2">
+          <button
+            onClick={onBuyNow}
+            className="btn btn-primary btn-sm uppercase tracking-wide flex-1"
+          >
+            Buy Now
+          </button>
+
+          <button
+            onClick={onAddToCart}
+            className="btn btn-success btn-sm flex justify-center items-center p-2"
+            aria-label="Add to Cart"
+          >
+            <FaShoppingCart size={18} />
+          </button>
+        </div>
       </div>
     </div>
   );
 };
-
-// Example grid
-export const ExampleCardList = () => (
-  <div className="bg-base-200 p-8">
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      {Array.from({ length: 10 }).map((_, idx) => (
-        <EcommerceCard
-          key={idx}
-          imageUrl={`https://picsum.photos/280/320?random=${idx}`}
-          title={`Modern Product ${idx + 1}`}
-          price={`$${(Math.random() * 100 + 50).toFixed(2)}`}
-          sale={idx < 5}
-        />
-      ))}
-    </div>
-  </div>
-);
 
 export default EcommerceCard;
