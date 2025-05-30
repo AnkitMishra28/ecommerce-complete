@@ -25,16 +25,16 @@ const navigation = {
                     id: 'sweet-breads',
                     name: 'Sweet Breads',
                     items: [
-                        { name: 'Cinnamon Rolls', id: '#first' },
-                        { name: 'Banana Bread', id: '#first' },
+                        { name: 'Cinnamon Rolls', id: '#bread' },
+                        { name: 'Banana Bread', id: '#bread' },
                     ],
                 },
                 {
                     id: 'savory-breads',
                     name: 'Savory Breads',
                     items: [
-                        { name: 'Ciabatta', id: '#first' },
-                        { name: 'Focaccia', id: '#first' },
+                        { name: 'Ciabatta', id: '#bread' },
+                        { name: 'Focaccia', id: '#bread' },
                     ],
                 },
             ],
@@ -51,16 +51,16 @@ const navigation = {
                     id: 'sweet-pastries',
                     name: 'Sweet Pastries',
                     items: [
-                        { name: 'Fruit Tarts', id: '#first' },
-                        { name: 'Éclairs', id: '#first' },
+                        { name: 'Fruit Tarts', id: '#pastries' },
+                        { name: 'Éclairs', id: '#pastries' },
                     ],
                 },
                 {
                     id: 'savory-pastries',
                     name: 'Savory Pastries',
                     items: [
-                        { name: 'Quiche', id: '#first' },
-                        { name: 'Savory Puffs', id: '#first' },
+                        { name: 'Quiche', id: '#pastries' },
+                        { name: 'Savory Puffs', id: '#pastries' },
                     ],
                 },
             ],
@@ -77,16 +77,16 @@ const navigation = {
                     id: 'layered-cakes',
                     name: 'Layered Cakes',
                     items: [
-                        { name: 'Red Velvet', id: '#first' },
-                        { name: 'Carrot Cake', href: '/cakes/carrot-cake' },
+                        { name: 'Red Velvet', id: '#cake' },
+                        { name: 'Carrot Cake',id: '#cake' },
                     ],
                 },
                 {
                     id: 'mini-cakes',
                     name: 'Mini Cakes',
                     items: [
-                        { name: 'Cupcakes', href: '/cakes/cupcakes' },
-                        { name: 'Mini Bundt', href: '/cakes/mini-bundt' },
+                        { name: 'Cupcakes', id: '#cake' },
+                        { name: 'Mini Bundt',id: '#cake' },
                     ],
                 },
             ],
@@ -103,16 +103,16 @@ const navigation = {
                     id: 'hot-drinks',
                     name: 'Hot Drinks',
                     items: [
-                        { name: 'Espresso', href: '/drinks/espresso' },
-                        { name: 'Latte', href: '/drinks/latte' },
+                        { name: 'Espresso', id: '#drink' },
+                        { name: 'Latte', id: '#drink' },
                     ],
                 },
                 {
                     id: 'cold-drinks',
                     name: 'Cold Drinks',
                     items: [
-                        { name: 'Iced Coffee', href: '/drinks/iced-coffee' },
-                        { name: 'Iced Tea', href: '/drinks/iced-tea' },
+                        { name: 'Iced Coffee', id: '#drink' },
+                        { name: 'Iced Tea', id: '#drink' },
                     ],
                 },
             ],

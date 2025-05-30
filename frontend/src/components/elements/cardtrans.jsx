@@ -1,5 +1,5 @@
 import React from 'react';
-import { products } from '../../data/product.js'; // Assuming you have a products data file
+import { products } from '../../data/pastries.js'; // Assuming you have a products data file
 
 const Cardtrans = ({
     imageUrl,

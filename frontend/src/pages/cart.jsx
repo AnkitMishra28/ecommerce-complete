@@ -33,11 +33,30 @@ const Cart = () => {
 
   return (
     <div className="p-6 text-white min-h-screen bg-gray-900">
-      <h2 className="text-3xl font-bold mb-6 mt-10">My Cart</h2>
+      <h2 className="text-3xl font-bold mb-6 mt-10" id='cart' >My Cart</h2>
 
       {cartItems.length === 0 ? (
-        <p className="text-gray-300">Your cart is empty.</p>
+        <div className="flex flex-col items-center justify-center h-[70vh] bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl shadow-lg p-6 text-center">
+          <svg
+            className="w-24 h-24 mb-4 text-gray-500"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8M17 13l1.6 8M9 21h6"
+            />
+          </svg>
+          <h3 className="text-2xl font-semibold text-white">Your cart is empty</h3>
+          <p className="text-gray-400 mt-2">
+            Looks like you haven’t added anything yet. Start shopping now!
+          </p>
+        </div>
       ) : (
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Section - Cart Items */}
           <ul className="lg:col-span-2 space-y-6">

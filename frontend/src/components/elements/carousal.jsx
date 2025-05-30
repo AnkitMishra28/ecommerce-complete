@@ -23,7 +23,7 @@ const Carousel = () => {
     <div className="relative w-full overflow-hidden">
       {/* Outer wrapper hides scrollbar overflow */}
       <div className="overflow-x-auto scrolling-touch scrollbar-hide" ref={carouselRef} style={{ scrollBehavior: 'smooth' }}>
-        <div className="flex space-x-6 px-4 py-4">
+        <div className="flex space-x-1 px-4 py-4">
           {[
             "photo-1559703248-dcaaec9fab78",
             "photo-1565098772267-60af42b81ef2",

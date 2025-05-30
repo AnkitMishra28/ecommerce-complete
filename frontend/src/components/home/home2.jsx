@@ -4,7 +4,7 @@ import Imgstk from '../../components/elements/imagestk.jsx';
 import Head from '../../../public/images/head.webp';
 import Balls from '../elements/animated.1.jsx';
 import Countdown from '../elements/countdown.jsx';
-import { products } from '../../data/product.js';
+import { products } from '../../data/pastries.js';
 
 export default function Home2() {
   const carouselRef = useRef(null);

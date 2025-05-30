@@ -39,6 +39,9 @@ const EcommerceCard = ({ product }) => {
         <h2 className="card-title text-lg font-semibold line-clamp-2">
           {product.name}
         </h2>
+        <h4 className="">
+          {product.description}
+        </h4>
 
         <div className="flex items-center gap-2 mt-1">
           <span className="text-xl font-bold text-primary">₹{product.price}</span>
